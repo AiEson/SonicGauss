@@ -1,0 +1,170 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: white;
+}
+
+/* Splash Screen Styles */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+#splash-screen img {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+#loading-text {
+    color: white;
+    font-size: 24px;
+    margin-top: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Animated dots */
+@keyframes blink {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.dot-one, .dot-two, .dot-three {
+    opacity: 0;
+}
+
+.dot-one {
+    animation: blink 1.5s infinite 0s;
+}
+
+.dot-two {
+    animation: blink 1.5s infinite 0.5s;
+}
+
+.dot-three {
+    animation: blink 1.5s infinite 1s;
+}
+
+/* Volume Warning Dialog */
+#volume-warning {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 9000;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    max-width: 80%;
+    display: none; /* Hidden by default */
+}
+
+#volume-warning h2 {
+    margin-top: 0;
+    color: #ff5555;
+}
+
+#volume-warning button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#volume-warning button:hover {
+    background-color: #45a049;
+}
+
+#container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#info {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    color: white;
+    text-align: center;
+    z-index: 100;
+    display: block;
+    font-size: 1.2em;
+    pointer-events: auto;
+}
+
+/* Model Selector Styles */
+#model-selector-container {
+    margin: 15px auto;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#model-selector {
+    padding: 8px;
+    background-color: #222;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#model-selector option {
+    background-color: #222;
+}
+
+#load-model-btn {
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+#load-model-btn:hover {
+    background-color: #45a049;
+}
+
+#selected-point {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+/* Controls removed as they're no longer needed */
