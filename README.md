@@ -4,13 +4,12 @@ This is the repository that contains source code for the [SonicGauss website](ht
 
 If you find SonicGauss useful for your work please cite:
 ```
-@misc{wang2025sonicgauss,
-    title={SonicGauss: Position-Aware Physical Sound Synthesis for 3D Gaussian Representations},
-    author={Chunshi Wang and Hongxing Li and Yawei Luo},
-    year={2025},
-    eprint={2507.19835},
-    archivePrefix={arXiv},
-    primaryClass={cs.SD}
+@inproceedings{wang2025sonicgauss,
+  title={SonicGauss: Position-Aware Physical Sound Synthesis for 3D Gaussian Representations},
+  author={Wang, Chunshi and Li, Hongxing and Luo, Yawei},
+  booktitle={Proceedings of the 33rd ACM International Conference on Multimedia},
+  pages={10886--10895},
+  year={2025}
 }
 ```
 
