@@ -1,0 +1,53 @@
+paths:
+  train_file: "./datas/objectfolder_2.0_train.json"
+  val_file: "./datas/objectfolder_2.0_val.json"
+  test_file: ""
+  audio_base: "datas/OF_2.0/audio_results"
+  ply_base: "/hdd3/wcs/datasets/datasets/ObjectFolderResults/vision_results"
+  resume_from_checkpoint: ""
+  output_dir: "./ckpts/stage2/"
+  stage21_checkpoint: "./ckpts/stage2.1/checkpoints/best/"
+
+training:
+  per_device_batch_size: 1
+  contrastive_batch_size: 2
+  learning_rate: 1e-4
+  gradient_accumulation_steps: 1
+  num_train_epochs: 80
+  num_warmup_steps: 500
+  save_every: 5
+  eval_every: 1
+  log_every: 10
+  max_audio_duration: 2.98
+
+model:
+  num_layers: 3
+  num_single_layers: 9
+  in_channels: 64
+  attention_head_dim: 128
+  joint_attention_dim: 1024
+  num_attention_heads: 4
+  audio_seq_len: 64
+  max_duration: 2.98
+  uncondition: true
+  text_encoder_name: "google/flan-t5-large"
+
+  # Text/Gaussian Encoder output dimension
+  text_embed_dim: 1024  # T5-large hidden size, also PTv3 projection output
+
+  # Gaussian Encoder (PTv3)
+  ptv3_stride: "2,2,4,4"  # Can adjust for output resolution
+  gaussian_embed_dim: 512  # PTv3 encoder output dim (before projection)
+
+  # Projection heads for contrastive learning (Stage 2.1)
+  projection_dim: 1024  # Shared projection space dimension
+
+  # Temperature parameter (learnable, initialized to 0.07)
+  temperature_init: 0.07
+
+  # SH degree for PLY loading
+  sh_degree: 1
+
+inference:
+  steps: 50  # Number of diffusion steps for inference
+

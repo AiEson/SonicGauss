@@ -1,0 +1,56 @@
+paths:
+  train_file: "./datas/objectfolder_real_train.json"
+  val_file: "./datas/objectfolder_real_val.json"
+  test_file: ""
+  resume_from_checkpoint: ""
+  output_dir: "./ckpts/stage3/"
+  stage2_checkpoint: "./ckpts/stage2/best/"
+
+training:
+  per_device_batch_size: 1
+  learning_rate: 1e-4
+  gradient_accumulation_steps: 2
+  num_train_epochs: 80
+  num_warmup_steps: 200
+  save_every: 5
+  eval_every: 1
+  log_every: 10
+  max_audio_duration: 2.98
+  freeze_gaussian_encoder: false
+
+model:
+  num_layers: 3
+  num_single_layers: 9
+  in_channels: 64
+  attention_head_dim: 128
+  joint_attention_dim: 1024
+  num_attention_heads: 4
+  audio_seq_len: 64
+  max_duration: 2.98
+  uncondition: true
+  text_encoder_name: "google/flan-t5-large"
+
+  text_embed_dim: 1024
+
+  ptv3_stride: "2,2,4,4"
+  gaussian_embed_dim: 512
+
+  position_encoder:
+    num_frequencies: 10
+    input_dim: 63
+    hidden_dims: [256, 512]
+    output_dim: 1024
+
+  feature_fusion:
+    num_heads: 8
+    dropout: 0.1
+
+  sh_degree: 1
+
+inference:
+  steps: 50
+  guidance_scale: -1
+
+
+
+

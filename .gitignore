@@ -1,2 +1,7 @@
 .DS_store
 .idea
+datas/*
+!datas/README.md
+webapp
+ckpts/*
+!ckpts/README.md

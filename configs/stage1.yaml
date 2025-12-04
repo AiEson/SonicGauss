@@ -1,0 +1,31 @@
+paths:
+  train_file: "./datas/objectfolder_2.0_train.json"
+  val_file: "./datas/objectfolder_2.0_val.json"
+  test_file: "./datas/objectfolder_val.json"
+  resume_from_checkpoint: ""
+  output_dir: "./ckpts/stage1/"
+
+training:
+  per_device_batch_size: 2
+  learning_rate: 5e-4
+  gradient_accumulation_steps: 1
+  num_train_epochs: 80
+  num_warmup_steps: 1000
+  max_audio_duration: 2.98
+  
+model:
+  num_layers: 3
+  num_single_layers: 9
+  in_channels: 64
+  attention_head_dim: 128
+  joint_attention_dim: 1024
+  num_attention_heads: 4
+  audio_seq_len: 64
+  max_duration: 2.98
+  uncondition: true
+  text_encoder_name: "google/flan-t5-large"
+  
+
+
+
+
